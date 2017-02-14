@@ -94,10 +94,15 @@ In `rails console`, answer the following questions. Refer to your [CRUD with Rub
 For each question, see if you can craft a single Ruby expression that returns the final answer when entered into `rails console`.
 
  1. In what year was the oldest movie in our list released?
+  oldest = Movie.minimum('year') =>  1931 ### SELECT MIN("movies"."year") FROM "movies"
  1. In what year was the most recent movie in our list released?
+  recent = Movie.maximum('year') => 2010
  1. What is the duration of the shortest movie in our list?
+  shortest = Movie.minimum('duration') => 87 mins
  1. What is the longest movie in our list?
+  longest = Movie.maximum('duration') => 207 mins
  1. How many movies in our list have the word 'godfather' in their titles?
+  godfather_count = Movie.where(title: 'godfather').count
  1. Who directed *Life Is Beautiful*?
  1. How many movies in our list were directed by Francis Ford Coppola?
  1. What is the most recent movie in our list directed by Francis Ford Coppola?
@@ -189,10 +194,10 @@ So, we should first go through the steps we went through above when we were sett
 <%= select_tag(:movie_id, options_from_collection_for_select(Movie.all, :id, :title, @character.movie_id), :class => "form-control")
 ```
 
-1. Let's also add a link to the new movie form in case the movie doesn't exist yet.
-1. On a movie's show page, display a count of how many characters belong to that movie.
-1. On a movie's show page, display a list of the characters that belong to that movie.
-1. At the bottom of the list of characters, write a form to add a new character directly to that movie (without having to go to http://localhost:3000/characters/new). You can start by copying over the boilerplate new character form, and then modify it to pre-populate the `movie_id` input with the correct value. Finally, switch the `type` of the input to "hidden".
+<!-- 1. Let's also add a link to the new movie form in case the movie doesn't exist yet.  -->
+<!-- 1. On a movie's show page, display a count of how many characters belong to that movie. -->
+<!-- 1. On a movie's show page, display a list of the characters that belong to that movie. -->
+<!-- 1. At the bottom of the list of characters, write a form to add a new character directly to that movie (without having to go to http://localhost:3000/characters/new). You can start by copying over the boilerplate new character form, and then modify it to pre-populate the `movie_id` input with the correct value. Finally, switch the `type` of the input to "hidden". -->
 
 Do the same steps for the one-to-many relationship between actors and characters.
 
