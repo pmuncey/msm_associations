@@ -28,6 +28,15 @@
           <% end %>
         </ul>
       </dd>
+
+      <dt>Filmography</dt>
+      <dd>
+        <ul>
+          <% Character.where(actor_id: @actor.id).each do |character| %>
+            <li><%= Movie.find_by(id: character.actor_id).title %></li>
+          <% end %>
+        </ul>
+      </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">

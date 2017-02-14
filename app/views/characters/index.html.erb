@@ -15,7 +15,7 @@
         <th>Actions</th>
       </tr>
 
-      <% @characters.each do |character| %>
+      <!-- <% @characters.each do |character| %> -->
       <tr>
         <td><%= Movie.find_by(id: character.movie_id).title %></td>
         <td><%= Actor.find_by(id: character.actor_id).name %></td>
